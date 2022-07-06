@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+	<style>
+		body {
+			margin     : 0;
+			padding    : 0;
+			font-family: Roboto, sans-serif;
+		}
+		.header,
+		.footer,
+		.main {
+			max-width       : 1170px;
+			margin          : 0 auto;
+			padding         : 0 15px;
+			background-color: #C0DBD9;
+		}
+		.container {
+			min-height      : 32px;
+			padding         : 30px;
+			background-color: #7FAFF6;
+		}
+		.button {
+			display         : inline-block;
+			padding         : 8px 15px;
+			transition      : .3s;
+			text-decoration : none;
+			font-family     : Roboto, sans-serif;
+			font-size       : 20px;
+			line-height     : 1.17;
+			color           : #F4F8FE;
+			border-radius   : 5px;
+			background-color: #A5C7F9;
+		}
+		.button:focus,
+		.button:hover {
+			transition      : .3s;
+			background-color: #3F87F3;
+		}
+		.button:active {
+			transition: 0s;
+			box-shadow: inset 0 0 3px #222222;
+		}
+		.main {
+			padding-top: 15px;
+		}
+		.section {
+			display        : flex;
+			flex-direction : row;
+			flex-wrap      : wrap;
+			justify-content: stretch;
+			gap            : 15px;
+		}
+		.section_green {
+			margin-bottom   : 15px;
+			background-color: #B3F95A;
+		}
+		.green {
+			position        : relative;
+			width           : 100%;
+			min-height      : 198px;
+			text-align      : left;
+			letter-spacing  : 0em;
+			font-family     : Roboto, sans-serif;
+			font-size       : 53px;
+			font-weight     : 400;
+			line-height     : 1.17;
+			color           : #F4F8FE;
+			background-color: #8AD191;
+		}
+		.green::after {
+			position : absolute;
+			top      : 50%;
+			left     : 50%;
+			transform: translate(-50%, -50%);
+		}
+		.green:first-child::after {
+			content: "1";
+		}
+		.green:nth-child(2)::after {
+			content: "2";
+		}
+		.green:nth-child(3)::after {
+			content: "3";
+		}
+		.green:nth-child(4)::after {
+			content: "4";
+		}
+		.green:last-child::after {
+			content: "5";
+		}
+		@media (min-width: 1260px) {
+			.green:first-child {
+				width: 390px;
+			}
+			.green:nth-child(2) {
+				width: 590px;
+			}
+			.green:nth-child(3) {
+				width: 160px;
+			}
+			.green:nth-child(4) {
+				width: 995px;
+			}
+			.green:last-child {
+				width: 160px;
+			}
+		}
+		.section_blue {
+			flex-wrap       : nowrap;
+			padding         : 30px;
+			background-color: #88B5BF;
+			gap             : 30px;
+		}
+		.blue {
+			width           : 25%;
+			background-color: #0D89B0;
+			aspect-ratio    : 255 / 199;
+		}
+		.footer {
+			padding-top: 100px;
+		}
+		.pop-up {
+			position        : absolute;
+			top             : 0;
+			left            : 50%;
+			display         : flex;
+			align-items     : stretch;
+			width           : 400px;
+			min-height      : 400px;
+			margin          : 10% auto;
+			transition      : transform .5s;
+			transform       : translate(-50%, -300%);
+			pointer-events  : none;
+			background-color: #ffffff;
+			box-shadow      : 0 0 5px #333333;
+		}
+		.pop-up:target {
+			transition    : transform .5s;
+			transform     : translate(-50%, 0);
+			pointer-events: auto;
+		}
+		.pop-up__container {
+			position       : relative;
+			display        : flex;
+			align-items    : center;
+			justify-content: center;
+			width          : 100%;
+			text-align     : center;
+			font-size      : 53px;
+			line-height    : 1.17;
+		}
+		.button_pop-up {
+			position   : absolute;
+			top        : 15px;
+			right      : 15px;
+			padding    : 8px 14px;
+		}
+		.button_pop-up:target {
+			pointer-events: auto;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<div class="container"><a href="#pop-up" class="button">Open pop-up button</a></div>
+	</header>
+	<main class="main">
+		<section class="section section_green">
+			<div class="green"></div><div class="green"></div><div class="green"></div><div class="green"></div><div class="green"></div>
+		</section>
+		<section class="section section_blue">
+			<div class="blue"></div><div class="blue"></div><div class="blue"></div><div class="blue"></div>
+		</section>
+	</main>
+	<footer class="footer">
+		<div class="container"></div>
+	</footer>
+	<div class="pop-up" id="pop-up"><div class="pop-up__container"><a href="#close" class="button button_pop-up" title="Close">X</a>Pop-up</div></div>
+</body>
+</html>
